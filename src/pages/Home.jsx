@@ -89,7 +89,7 @@ const PrintsPreview = () => (
         <p className="section-label">Colección</p>
         <div className="gold-line" />
         <h2 className="prints-preview__title">
-          Prints <em>disponibles</em>
+          Prints <em>Disponibles</em>
         </h2>
         <p className="prints-preview__body">
           Diseños originales para imprimir, enmarcar y coleccionar. Arte de
