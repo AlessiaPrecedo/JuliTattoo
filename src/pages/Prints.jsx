@@ -1,5 +1,10 @@
-function Prints() {
-  return <h1>Prints 🖨️</h1>;
-}
+import ProductGrid from "../components/Product/ProductGrid";
 
-export default Prints;
+export default function Prints() {
+  return (
+    <main>
+      <h1>Prints disponibles</h1>
+      <ProductGrid />
+    </main>
+  );
+}

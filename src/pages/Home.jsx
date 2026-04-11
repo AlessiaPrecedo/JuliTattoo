@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Hero from "../components/Hero";
+import Hero from "../components/layout/Hero";
 import "../styles/galeria.css";
 import "../styles/Home.css";
 
