@@ -31,9 +31,9 @@ export default async function handler(req, res) {
     const preference = await mercadopago.preferences.create({
       items,
       back_urls: {
-        success: "https://tusitio.com/gracias",
-        failure: "https://tusitio.com/checkout",
-        pending: "https://tusitio.com/checkout",
+        success: "http://localhost:5173/gracias",
+        failure: "http://localhost:5173/checkout",
+        pending: "http://localhost:5173/checkout",
       },
       auto_return: "approved",
     });
