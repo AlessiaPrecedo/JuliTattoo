@@ -1,8 +1,11 @@
-import mercadopago from "mercadopago";
+import { MercadoPagoConfig, Preference } from "mercadopago";
 
-mercadopago.configure({
-  access_token: process.env.MP_ACCESS_TOKEN,
-});
+function getBaseUrl(req) {
+  const protocol = req.headers["x-forwarded-proto"] || "http";
+  const host = req.headers["x-forwarded-host"] || req.headers.host;
+
+  return `${protocol}://${host}`;
+}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -10,11 +13,29 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { cartItems, shipping } = req.body;
+    const accessToken = process.env.MP_ACCESS_TOKEN;
+
+    if (!accessToken) {
+      return res.status(500).json({ error: "MP_ACCESS_TOKEN no configurado" });
+    }
+
+    const { cartItems = [], shipping = 0 } = req.body || {};
+
+    if (!Array.isArray(cartItems) || cartItems.length === 0) {
+      return res
+        .status(400)
+        .json({ error: "No hay productos para crear la preferencia" });
+    }
+
+    const client = new MercadoPagoConfig({
+      accessToken,
+    });
+    const preferenceClient = new Preference(client);
+    const baseUrl = getBaseUrl(req);
 
     const items = cartItems.map((item) => ({
-      title: `${item.name} - ${item.size}`,
-      quantity: item.quantity,
+      title: [item.name, item.size].filter(Boolean).join(" - "),
+      quantity: Number(item.quantity),
       unit_price: Number(item.price),
       currency_id: "ARS",
     }));
@@ -28,22 +49,26 @@ export default async function handler(req, res) {
       });
     }
 
-    const preference = await mercadopago.preferences.create({
-      items,
-      back_urls: {
-        success: "http://localhost:5173/gracias",
-        failure: "http://localhost:5173/checkout",
-        pending: "http://localhost:5173/checkout",
+    const preference = await preferenceClient.create({
+      body: {
+        items,
+        back_urls: {
+          success: `${baseUrl}/gracias`,
+          failure: `${baseUrl}/checkout`,
+          pending: `${baseUrl}/checkout`,
+        },
+        auto_return: "approved",
       },
-      auto_return: "approved",
     });
 
     return res.status(200).json({
-      preferenceId: preference.body.id,
-      initPoint: preference.body.init_point,
+      preferenceId: preference.id,
+      initPoint: preference.init_point,
     });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Error creando preferencia" });
+    console.error("Error creando preferencia:", error);
+    return res.status(500).json({
+      error: error.message || "Error creando preferencia",
+    });
   }
 }

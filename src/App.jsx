@@ -6,6 +6,7 @@ import Galeria from "./pages/Galeria";
 import Prints from "./pages/Prints";
 import Preguntas from "./pages/Preguntas";
 import Checkout from "./pages/Checkout";
+import Gracias from "./pages/Gracias";
 import "./styles/index.css";
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
       <Route path="/prints" element={<Prints />} />
       <Route path="/preguntas" element={<Preguntas />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/gracias" element={<Gracias />} />
     </Routes>
     <Footer />
   </BrowserRouter>
