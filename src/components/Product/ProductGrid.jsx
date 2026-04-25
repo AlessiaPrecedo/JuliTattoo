@@ -4,7 +4,7 @@ const products = [
   {
     id: 1,
     name: "Print Dragón",
-    price: 10,
+    price: 150,
     image: "/prints/dragon.jpg",
     formats: ["A4", "A3", "50x70"],
   },
