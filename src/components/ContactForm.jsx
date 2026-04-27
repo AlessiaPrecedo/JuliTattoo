@@ -76,7 +76,6 @@ export default function ContactForm() {
           }}
         />
       </div>
-
       <div style={{ marginBottom: "1rem" }}>
         <label
           htmlFor="email"
@@ -99,7 +98,7 @@ export default function ContactForm() {
           }}
         />
       </div>
-
+      //comentario
       <div style={{ marginBottom: "1rem" }}>
         <label
           htmlFor="message"
@@ -123,7 +122,6 @@ export default function ContactForm() {
           }}
         />
       </div>
-
       <button
         type="submit"
         disabled={status === "sending"}
@@ -140,7 +138,6 @@ export default function ContactForm() {
       >
         {status === "sending" ? "Enviando..." : "Enviar mensaje"}
       </button>
-
       {status === "error" && (
         <p style={{ color: "red", marginTop: "1rem" }}>
           ❌ Error al enviar el mensaje. Intenta de nuevo.
