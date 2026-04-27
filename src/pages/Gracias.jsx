@@ -1,6 +1,36 @@
 import { Link } from "react-router-dom";
+import emailjs from "emailjs-com";
+import { useEffect } from "react";
 
 export default function Gracias() {
+  useEffect(() => {
+    // Parámetros de prueba para la plantilla de EmailJS
+    const templateParams = {
+      email: "alissiaprecedo@hotmail.com", // Cambia por el email del comprador si lo tienes
+      nombre: "Cliente de prueba",
+      order_id: "12345",
+      pedidos: "1",
+      precio: "1000",
+      unidades: "2",
+      "cost.shipping": "500",
+    };
+    emailjs
+      .send(
+        "service_i9ya9g2",
+        "template_t7o6ny9",
+        templateParams,
+        "WJaZ-EVnzXkw09eqk",
+      )
+      .then(
+        (result) => {
+          console.log("Email enviado correctamente", result.text);
+        },
+        (error) => {
+          console.error("Error al enviar email:", error);
+        },
+      );
+  }, []);
+
   return (
     <main
       style={{
