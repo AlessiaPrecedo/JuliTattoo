@@ -1,16 +1,5 @@
 import { MercadoPagoConfig, Preference } from "mercadopago";
 
-const REQUIRED_CHECKOUT_FIELDS = [
-  "nombre",
-  "apellido",
-  "email",
-  "telefono",
-  "direccion",
-  "ciudad",
-  "provincia",
-  "cp",
-];
-
 function normalizeBaseUrl(url) {
   if (!url || typeof url !== "string") return null;
 
@@ -62,17 +51,13 @@ export default async function handler(req, res) {
         .json({ error: "No hay productos para crear la preferencia" });
     }
 
-    const missingFields = REQUIRED_CHECKOUT_FIELDS.filter(
-      (field) => !String(checkoutData[field] || "").trim(),
-    );
+    const checkoutEmail = String(checkoutData.email || "").trim();
 
-    if (missingFields.length > 0) {
+    if (!checkoutEmail) {
       return res.status(400).json({
-        error: `Faltan datos obligatorios del checkout: ${missingFields.join(", ")}`,
+        error: "Falta el email del checkout para crear la preferencia",
       });
     }
-
-    const checkoutEmail = String(checkoutData.email || "").trim();
 
     const client = new MercadoPagoConfig({
       accessToken,
