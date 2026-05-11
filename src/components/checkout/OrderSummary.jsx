@@ -46,7 +46,7 @@ export default function OrderSummary() {
               <div className="flex-1">
                 <p className="font-medium">{item.name}</p>
                 <p className="text-sm text-gray-500">
-                  Talle: {item.size} · Cantidad: {item.quantity}
+                  Talle: {item.size} / Cantidad: {item.quantity}
                 </p>
               </div>
 
@@ -62,7 +62,7 @@ export default function OrderSummary() {
                   aria-label={`Eliminar ${item.name} del carrito`}
                   title="Eliminar producto"
                 >
-                  🗑️
+                  x
                 </button>
               </div>
             </div>

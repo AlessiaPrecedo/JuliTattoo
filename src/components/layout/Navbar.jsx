@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../../context/useCart";
 import "../../styles/Navbar.css";
 
@@ -14,7 +14,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems } = useCart();
-  const location = useLocation();
 
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -23,10 +22,6 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -74,7 +69,7 @@ export default function Navbar() {
             <span className="navbar__menu-label">Menu</span>
           </button>
 
-          <Link to="/" className="navbar__logo">
+          <Link to="/" className="navbar__logo" onClick={closeMenu}>
             <span className="navbar__logo-name">Juli</span>
             <span className="navbar__logo-sub">Tattoo Studio</span>
           </Link>
@@ -84,6 +79,7 @@ export default function Navbar() {
             className={({ isActive }) =>
               `navbar__cart-pill ${isActive ? "navbar__cart-pill--active" : ""}`
             }
+            onClick={closeMenu}
           >
             <span>Carrito</span>
             <span className="navbar__cart-count">{totalItems}</span>

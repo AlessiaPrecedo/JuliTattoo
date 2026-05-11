@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export default function BillingForm({ onFormChange }) {
   const [form, setForm] = useState(() => {
     const saved = sessionStorage.getItem("checkoutData");
+
     return saved
       ? JSON.parse(saved)
       : {
@@ -22,8 +23,8 @@ export default function BillingForm({ onFormChange }) {
     onFormChange?.(form);
   }, [form, onFormChange]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
     setForm((prev) => ({
       ...prev,
@@ -36,7 +37,7 @@ export default function BillingForm({ onFormChange }) {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Datos de facturación</h2>
+      <h2 className="text-xl font-semibold">Datos de facturacion</h2>
 
       <div className="grid grid-cols-2 gap-4">
         <input
@@ -59,7 +60,7 @@ export default function BillingForm({ onFormChange }) {
         className={inputClass}
         name="email"
         type="email"
-        placeholder="Correo electrónico"
+        placeholder="Correo electronico"
         value={form.email}
         onChange={handleChange}
       />
@@ -67,7 +68,7 @@ export default function BillingForm({ onFormChange }) {
       <input
         className={inputClass}
         name="telefono"
-        placeholder="Teléfono"
+        placeholder="Telefono"
         value={form.telefono}
         onChange={handleChange}
       />
@@ -75,7 +76,7 @@ export default function BillingForm({ onFormChange }) {
       <input
         className={inputClass}
         name="direccion"
-        placeholder="Dirección"
+        placeholder="Direccion"
         value={form.direccion}
         onChange={handleChange}
       />

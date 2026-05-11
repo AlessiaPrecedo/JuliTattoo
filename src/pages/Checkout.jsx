@@ -41,7 +41,7 @@ export default function Checkout() {
 
         <div style={{ display: "grid", gap: "1rem" }}>
           <OrderSummary />
-          <PaymentButton disabled={!canContinue} />;
+          <PaymentButton disabled={!canContinue} />
         </div>
       </section>
     </main>
