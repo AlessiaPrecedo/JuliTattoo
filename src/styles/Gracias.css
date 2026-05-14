@@ -1,0 +1,60 @@
+.thank-you-page {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  padding: 7.5rem 1rem 3rem;
+}
+
+.thank-you-page__card {
+  width: 100%;
+  max-width: 640px;
+  padding: 2rem;
+  border: 1px solid var(--color-panel-border);
+  border-radius: 1.5rem;
+  background: var(--color-paper-soft);
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.thank-you-page__eyebrow {
+  margin: 0;
+  color: #8c6a43;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.thank-you-page__title {
+  margin: 0.75rem 0 1rem;
+  font-size: 2.25rem;
+}
+
+.thank-you-page__copy {
+  max-width: 460px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.7;
+}
+
+.thank-you-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.thank-you-page__link {
+  padding: 0.9rem 1.2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.thank-you-page__link--primary {
+  background: var(--color-accent);
+  color: #0a0a0a;
+}
+
+.thank-you-page__link--secondary {
+  border: 1px solid var(--color-accent);
+  color: var(--color-ink-soft);
+}

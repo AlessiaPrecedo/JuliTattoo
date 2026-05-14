@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import BillingForm from "../components/checkout/BillingForm";
 import OrderSummary from "../components/checkout/OrderSummary";
 import PaymentButton from "../components/checkout/PaymenButton";
+import "../styles/Checkout.css";
+
 const requiredFields = [
   "nombre",
   "apellido",
@@ -24,22 +26,13 @@ export default function Checkout() {
   }, [formData]);
 
   return (
-    <main
-      style={{ maxWidth: 1200, margin: "0 auto", padding: "7.5rem 1rem 3rem" }}
-    >
-      <h1 style={{ fontSize: "2rem", marginBottom: "1.5rem" }}>Checkout</h1>
+    <main className="checkout-page">
+      <h1 className="checkout-page__title">Checkout</h1>
 
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: "1rem",
-          alignItems: "start",
-        }}
-      >
+      <section className="checkout-page__layout">
         <BillingForm onFormChange={setFormData} />
 
-        <div style={{ display: "grid", gap: "1rem" }}>
+        <div className="checkout-page__sidebar">
           <OrderSummary />
           <PaymentButton disabled={!canContinue} />
         </div>

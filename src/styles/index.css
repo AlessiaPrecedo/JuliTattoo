@@ -4,6 +4,16 @@
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.5;
   font-weight: 400;
+  --color-ink: #1f1a17;
+  --color-ink-soft: #5f4727;
+  --color-paper: #f7f1ea;
+  --color-paper-soft: #fffaf5;
+  --color-panel-border: #e7dccf;
+  --color-accent: #c9a84c;
+  --color-disabled: #3a3a3a;
+  --color-disabled-text: #f5f0eb;
+  --shadow-soft: 0 12px 28px rgba(31, 26, 23, 0.08);
+  --layout-max-width: 1200px;
 }
 
 * {
@@ -19,8 +29,8 @@ body,
 
 body {
   min-width: 320px;
-  background: #f7f1ea;
-  color: #1f1a17;
+  background: var(--color-paper);
+  color: var(--color-ink);
 }
 
 a {

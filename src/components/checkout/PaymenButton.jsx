@@ -1,4 +1,5 @@
 import { useCart } from "../../context/useCart";
+import "../../styles/PaymentButton.css";
 
 export default function PaymentButton({ disabled }) {
   const { cartItems, subtotal, total } = useCart();
@@ -78,15 +79,7 @@ export default function PaymentButton({ disabled }) {
       type="button"
       disabled={disabled}
       onClick={handlePayment}
-      style={{
-        border: "1px solid #c9a84c",
-        background: disabled ? "#3a3a3a" : "#c9a84c",
-        color: disabled ? "#f5f0eb" : "#0a0a0a",
-        borderRadius: "0.75rem",
-        padding: "0.9rem 1.1rem",
-        fontWeight: 600,
-        cursor: disabled ? "not-allowed" : "pointer",
-      }}
+      className="payment-button"
     >
       Continuar al pago
     </button>

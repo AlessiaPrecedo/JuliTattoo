@@ -1,0 +1,22 @@
+.checkout-page {
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 7.5rem 1rem 3rem;
+}
+
+.checkout-page__title {
+  margin: 0 0 1.5rem;
+  font-size: 2rem;
+}
+
+.checkout-page__layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.checkout-page__sidebar {
+  display: grid;
+  gap: 1rem;
+}

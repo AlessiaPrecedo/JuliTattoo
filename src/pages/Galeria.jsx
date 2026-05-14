@@ -1,12 +1,12 @@
 import "../styles/galeria.css";
 
 const images = [
-  "/images/tattoo1.jpg",
-  "/images/tattoo2.jpg",
-  "/images/tattoo3.jpg",
-  "/images/tattoo4.jpg",
-  "/images/tattoo5.jpg",
-  "/images/tattoo6.jpg",
+  "/assets/images/tattoo1.jpg",
+  "/assets/images/tattoo2.jpg",
+  "/assets/images/tattoo3.jpg",
+  "/assets/images/tattoo4.jpg",
+  "/assets/images/tattoo5.jpg",
+  "/assets/images/tattoo6.jpg",
 ];
 
 export default function Galeria() {
@@ -47,4 +47,3 @@ export default function Galeria() {
     </div>
   );
 }
-
