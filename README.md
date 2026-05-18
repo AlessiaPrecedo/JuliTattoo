@@ -1,16 +1,42 @@
-# React + Vite
+# Juli Brz Tattoo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ecommerce y sistema de reservas desarrollado para una tatuadora profesional.  
+La aplicación permite comprar productos, agendar turnos mediante WhatsApp y gestionar pagos de Mercado Pago, con google sheets.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🛒 Carrito de compras
+- 💳 Integración con Mercado Pago
+- 📄 Integración con Google Sheets
+- 📱 Diseño responsive
+- ⚡ Frontend rápido con React + Vite
+- 📅 Reserva de turnos vía WhatsApp
 
-## React Compiler
+## Tecnologias utilizadas 🚀
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- JavaScript
+- HTML5
+- CSS3
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+
+- Node.js
+
+### Integraciones
+
+- Mercado Pago API
+- Webhooks
+- WhatsApp API
+- Google Sheets API
+
+## 🚀 Funcionalidades futuras
+
+- Panel administrador
+- Historial de turnos
+- Autenticación de usuarios
+- Dashboard de ventas
+- Emails automáticos
