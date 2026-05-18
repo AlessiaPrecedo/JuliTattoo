@@ -18,12 +18,12 @@ export default function CartItem({ item }) {
   };
 
   return (
-    <div className="flex gap-4 border rounded-xl p-3">
+    <div className="flex gap-4 border p-3">
       {/* Imagen */}
       <img
         src={item.image}
         alt={item.name}
-        className="w-20 h-20 object-cover rounded-lg"
+        className="w-20 h-20 object-cover"
       />
 
       {/* Info */}

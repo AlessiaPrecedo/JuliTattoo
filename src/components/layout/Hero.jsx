@@ -13,7 +13,7 @@ export default function Hero() {
 
       <div className="hero__content">
         <h1 className="hero__title">
-          <span className="hero__title-thin">Juli</span>
+          <span className="hero__title-thin">Juli Brz</span>
           <span className="hero__title-italic">Tattoo</span>
         </h1>
 
@@ -36,11 +36,6 @@ export default function Hero() {
             Ver galeria
           </Link>
         </div>
-      </div>
-
-      <div className="hero__scroll">
-        <span>Scroll</span>
-        <div className="hero__scroll-line" />
       </div>
     </section>
   );

@@ -33,7 +33,7 @@ export default function BillingForm({ onFormChange }) {
   };
 
   const inputClass =
-    "w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-black";
+    "w-full border px-4 py-3 outline-none focus:ring-2 focus:ring-black";
 
   return (
     <div className="space-y-4">

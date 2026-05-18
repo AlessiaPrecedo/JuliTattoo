@@ -1,19 +1,27 @@
 :root {
-  color: #1f1a17;
-  background: #f7f1ea;
+  color: #4d2c36;
+  background: #ffecd6;
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.5;
   font-weight: 400;
-  --color-ink: #1f1a17;
-  --color-ink-soft: #5f4727;
-  --color-paper: #f7f1ea;
-  --color-paper-soft: #fffaf5;
-  --color-panel-border: #e7dccf;
-  --color-accent: #c9a84c;
-  --color-disabled: #3a3a3a;
-  --color-disabled-text: #f5f0eb;
-  --shadow-soft: 0 12px 28px rgba(31, 26, 23, 0.08);
+  --color-rose-light: #ff6a9b;
+  --color-rose-medium: #f94d82;
+  --color-rose-dark: #e94377;
+  --color-beige-light: #ffecd6;
+  --color-beige-medium: #f6d7b5;
+  --color-beige-dark: #e8c7a3;
+  --color-ink: #4d2c36;
+  --color-ink-soft: #7a4d5f;
+  --color-paper: var(--color-beige-light);
+  --color-paper-soft: #fff7ef;
+  --color-panel-border: rgba(233, 67, 119, 0.2);
+  --color-accent: var(--color-rose-medium);
+  --color-accent-strong: var(--color-rose-dark);
+  --color-disabled: #cda9b4;
+  --color-disabled-text: #fff7ef;
+  --shadow-soft: 0 14px 30px rgba(233, 67, 119, 0.12);
   --layout-max-width: 1200px;
+  --radius-sharp: 0;
 }
 
 * {
@@ -43,6 +51,7 @@ input,
 select,
 textarea {
   font: inherit;
+  border-radius: var(--radius-sharp);
 }
 
 img {

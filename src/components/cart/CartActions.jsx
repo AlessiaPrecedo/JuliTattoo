@@ -19,14 +19,14 @@ export default function CartActions({ onClose }) {
       <button
         onClick={handleCheckout}
         disabled={cartItems.length === 0}
-        className="w-full bg-black text-white py-3 rounded-xl disabled:opacity-50"
+        className="w-full bg-black text-white py-3 disabled:opacity-50"
       >
         Ir al checkout
       </button>
 
       <button
         onClick={handleContinueShopping}
-        className="w-full border py-3 rounded-xl"
+        className="w-full border py-3"
       >
         Seguir comprando
       </button>

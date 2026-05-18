@@ -10,7 +10,7 @@
   max-width: 640px;
   padding: 2rem;
   border: 1px solid var(--color-panel-border);
-  border-radius: 1.5rem;
+  border-radius: var(--radius-sharp);
   background: var(--color-paper-soft);
   text-align: center;
   box-shadow: var(--shadow-soft);
@@ -18,7 +18,7 @@
 
 .thank-you-page__eyebrow {
   margin: 0;
-  color: #8c6a43;
+  color: var(--color-rose-dark);
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -44,17 +44,18 @@
 
 .thank-you-page__link {
   padding: 0.9rem 1.2rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sharp);
   font-weight: 600;
   text-decoration: none;
 }
 
 .thank-you-page__link--primary {
   background: var(--color-accent);
-  color: #0a0a0a;
+  color: #fff7ef;
 }
 
 .thank-you-page__link--secondary {
   border: 1px solid var(--color-accent);
   color: var(--color-ink-soft);
+  background: rgba(255, 247, 239, 0.65);
 }

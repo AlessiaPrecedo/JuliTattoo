@@ -11,7 +11,7 @@ export default function OrderSummary() {
     });
 
   return (
-    <div className="border rounded-2xl p-6 space-y-4">
+    <div className="border p-6 space-y-4">
       <div className="flex items-start justify-between gap-4">
         <h2 className="text-xl font-semibold">Resumen del pedido</h2>
 
@@ -40,7 +40,7 @@ export default function OrderSummary() {
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-16 h-16 rounded-lg object-cover"
+                className="w-16 h-16 object-cover"
               />
 
               <div className="flex-1">
@@ -58,7 +58,7 @@ export default function OrderSummary() {
                 <button
                   type="button"
                   onClick={() => removeFromCart(item.id, item.size)}
-                  className="rounded-full p-2 text-lg leading-none transition hover:bg-red-50"
+                  className="p-2 text-lg leading-none transition hover:bg-red-50"
                   aria-label={`Eliminar ${item.name} del carrito`}
                   title="Eliminar producto"
                 >

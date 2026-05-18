@@ -51,7 +51,7 @@ const SobreMi = () => (
 
 /* ── Sección: Preview Galería ── */
 const GaleriaPreview = () => {
-  const items = [1, 2, 3, 4, 5, 6];
+  const images = ["/tattoo/tattoo1.jpg", "/tattoo/tattoo2.jpg"];
   return (
     <section className="galeria-preview">
       <div className="galeria-preview__header">
@@ -65,12 +65,9 @@ const GaleriaPreview = () => {
       </div>
 
       <div className="galeria-preview__grid">
-        {items.map((i) => (
-          <div key={i} className="galeria-preview__item">
-            <img
-              src={`https://placehold.co/400x500/1a1a1a/2a2a2a?text=tatuaje+${i}`}
-              alt={`Trabajo ${i}`}
-            />
+        {images.map((image, i) => (
+          <div key={image} className="galeria-preview__item">
+            <img src={image} alt={`Trabajo ${i + 1}`} />
             <div className="galeria-preview__hover">
               <span>Ver más</span>
             </div>
@@ -82,40 +79,41 @@ const GaleriaPreview = () => {
 };
 
 /* ── Sección: Prints ── */
-const PrintsPreview = () => (
-  <section className="prints-preview">
-    <div className="prints-preview__inner">
-      <div className="prints-preview__text">
-        <p className="section-label">Colección</p>
-        <div className="gold-line" />
-        <h2 className="prints-preview__title">
-          Prints <em>Disponibles</em>
-        </h2>
-        <p className="prints-preview__body">
-          Diseños originales para imprimir, enmarcar y coleccionar. Arte de
-          estudio para llevar a tu espacio.
-        </p>
-        <Link to="/prints" className="home-btn home-btn--gold">
-          Ver prints
-        </Link>
-      </div>
+const PrintsPreview = () => {
+  const imgs = ["/prints/michi.jpg"];
 
-      <div className="prints-preview__imgs">
-        {[1, 2, 3].map((i) => (
-          <div
-            key={i}
-            className={`prints-preview__img prints-preview__img--${i}`}
-          >
-            <img
-              src={`https://placehold.co/300x380/111/222?text=print+${i}`}
-              alt={`Print ${i}`}
-            />
-          </div>
-        ))}
+  return (
+    <section className="prints-preview">
+      <div className="prints-preview__inner">
+        <div className="prints-preview__text">
+          <p className="section-label">Colección</p>
+          <div className="gold-line" />
+          <h2 className="prints-preview__title">
+            Prints <em>Disponibles</em>
+          </h2>
+          <p className="prints-preview__body">
+            Diseños originales para imprimir, enmarcar y coleccionar. Arte de
+            estudio para llevar a tu espacio.
+          </p>
+          <Link to="/prints" className="home-btn home-btn--gold">
+            Ver prints
+          </Link>
+        </div>
+
+        <div className="prints-preview__imgs">
+          {imgs.map((img, i) => (
+            <div
+              key={img}
+              className={`prints-preview__img prints-preview__img--${i}`}
+            >
+              <img src={img} alt={`Print ${i + 1}`} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* ── Home ── */
 const Home = () => (

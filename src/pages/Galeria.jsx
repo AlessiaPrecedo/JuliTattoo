@@ -1,12 +1,12 @@
 import "../styles/galeria.css";
 
 const images = [
-  "/assets/images/tattoo/tattoo1.jpg",
-  "/assets/images/tattoo/tattoo2.jpg",
-  "/assets/images/tattoo/tattoo3.jpg",
-  "/assets/images/tattoo/tattoo4.jpg",
-  "/assets/images/tattoo/tattoo5.jpg",
-  "/assets/images/tattoo/tattoo6.jpg",
+  "/tattoo/tattoo1.jpg",
+  "/tattoo/tattoo2.jpg",
+  "/tattoo/tattoo3.jpg",
+  "/tattoo/tattoo4.jpg",
+  "/tattoo/tattoo5.jpg",
+  "/tattoo/tattoo6.jpg",
 ];
 
 export default function Galeria() {

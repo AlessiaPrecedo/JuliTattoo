@@ -3,24 +3,17 @@ import ProductCard from "./ProductCard";
 const products = [
   {
     id: 1,
-    name: "Print Dragón",
+    name: "Rani Tatuera",
     price: 150,
-    image: "/assets/images/prints/ranita.jpg",
+    image: "/prints/ranita.jpg",
     formats: ["A4", "A3", "50x70"],
   },
   {
     id: 2,
-    name: "Print Serpiente",
+    name: "Michi suerte",
     price: 28000,
-    image: "/assets/images/prints/michi.jpg",
+    image: "/prints/michi.jpg",
     formats: ["A4", "A3"],
-  },
-  {
-    id: 3,
-    name: "Print Tigre",
-    price: 32000,
-    image: "/assets/images/prints/flor.jpg",
-    formats: ["A4", "A3", "70x100"],
   },
 ];
 
