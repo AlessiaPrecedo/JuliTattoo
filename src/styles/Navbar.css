@@ -79,6 +79,7 @@
   align-items: center;
   justify-self: center;
   gap: 0.1rem;
+  min-width: 0;
 }
 
 .navbar__logo-name {
@@ -342,14 +343,23 @@
 @media (max-width: 520px) {
   .navbar__inner {
     gap: 0.65rem;
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 
   .navbar__cart-pill {
-    padding: 0.4rem 0.5rem 0.4rem 0.7rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .navbar__cart-pill > span:first-child {
+    display: none;
+  }
+
+  .navbar__menu-trigger {
+    padding: 0.72rem 0.85rem;
   }
 
   .navbar__drawer {
-    width: calc(100vw - 1rem);
+    width: min(22rem, calc(100vw - 1rem));
     padding: 1.15rem;
   }
 

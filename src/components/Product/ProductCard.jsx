@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { useCart } from "../../context/useCart";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onPreview }) {
   const { addToCart } = useCart();
   const [selectedFormat, setSelectedFormat] = useState("");
+  const formattedPrice = new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    maximumFractionDigits: 0,
+  }).format(product.price);
 
   const handleAddToCart = () => {
     if (!selectedFormat) {
@@ -18,22 +23,49 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div>
-      <img src={product.image} alt={product.name} />
+    <article className="product-card">
+      <button
+        className="product-card__media"
+        type="button"
+        onClick={onPreview}
+        aria-label={`Ver detalle de ${product.name}`}
+      >
+        <img src={product.image} alt={product.name} />
+        <span className="product-card__media-hint">Ver detalle</span>
+      </button>
 
-      <h3>{product.name}</h3>
-      <p>${product.price}</p>
+      <div className="product-card__body">
+        <div className="product-card__heading">
+          <h3>{product.name}</h3>
+          <p>{formattedPrice}</p>
+        </div>
 
-      {/* Selector de formato inline */}
-      <div>
-        {product.formats.map((format) => (
-          <button key={format} onClick={() => setSelectedFormat(format)}>
-            {format}
-          </button>
-        ))}
+        <div className="product-card__formats" aria-label="Formatos">
+          {product.formats.map((format) => (
+            <button
+              className={
+                selectedFormat === format
+                  ? "product-card__format product-card__format--active"
+                  : "product-card__format"
+              }
+              key={format}
+              type="button"
+              aria-pressed={selectedFormat === format}
+              onClick={() => setSelectedFormat(format)}
+            >
+              {format}
+            </button>
+          ))}
+        </div>
+
+        <button
+          className="product-card__add"
+          type="button"
+          onClick={handleAddToCart}
+        >
+          Agregar al carrito
+        </button>
       </div>
-
-      <button onClick={handleAddToCart}>Agregar al carrito</button>
-    </div>
+    </article>
   );
 }

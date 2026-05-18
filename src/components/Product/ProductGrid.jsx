@@ -1,4 +1,6 @@
+import { useState } from "react";
 import ProductCard from "./ProductCard";
+import ImageLightbox from "../ui/ImageLightbox";
 
 const products = [
   {
@@ -18,11 +20,29 @@ const products = [
 ];
 
 export default function ProductGrid() {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const productImages = products.map((product) => ({
+    src: product.image,
+    alt: product.name,
+  }));
+
   return (
-    <section>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </section>
+    <>
+      <section className="product-grid" aria-label="Prints disponibles">
+        {products.map((product, index) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onPreview={() => setSelectedIndex(index)}
+          />
+        ))}
+      </section>
+
+      <ImageLightbox
+        images={productImages}
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+      />
+    </>
   );
 }

@@ -70,7 +70,7 @@ export default function Navbar() {
           </button>
 
           <Link to="/" className="navbar__logo" onClick={closeMenu}>
-            <span className="navbar__logo-name">Juli</span>
+            <span className="navbar__logo-name">Juli Brz</span>
             <span className="navbar__logo-sub">Tattoo Studio</span>
           </Link>
 
@@ -120,10 +120,6 @@ export default function Navbar() {
 
         <div className="navbar__drawer-intro">
           <p className="navbar__drawer-title">Menu principal</p>
-          <p className="navbar__drawer-copy">
-            La navegacion vive en la bambalina y el carrito queda resuelto en el
-            checkout, sin invadir el resto de la web.
-          </p>
         </div>
 
         <ul className="navbar__drawer-links">
@@ -155,16 +151,14 @@ export default function Navbar() {
           }
           onClick={closeMenu}
         >
-          <span>{totalItems > 0 ? "Carrito / Checkout" : "Ir al checkout"}</span>
+          <span>
+            {totalItems > 0 ? "Carrito / Checkout" : "Ir al checkout"}
+          </span>
           <span className="navbar__drawer-cart-count">{totalItems}</span>
         </NavLink>
 
         <div className="navbar__drawer-footer">
           <span className="navbar__footer-pill">Checkout</span>
-          <p className="navbar__footer-copy">
-            El resumen del pedido vive dentro de checkout para no estorbar en las
-            demas paginas.
-          </p>
         </div>
       </nav>
     </>

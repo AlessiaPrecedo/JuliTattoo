@@ -59,9 +59,6 @@ const GaleriaPreview = () => {
           <p className="section-label">Portfolio</p>
           <h2 className="galeria-preview__title">Trabajos recientes</h2>
         </div>
-        <Link to="/galeria" className="home-btn home-btn--ghost">
-          Ver todo
-        </Link>
       </div>
 
       <div className="galeria-preview__grid">
@@ -69,7 +66,7 @@ const GaleriaPreview = () => {
           <div key={image} className="galeria-preview__item">
             <img src={image} alt={`Trabajo ${i + 1}`} />
             <div className="galeria-preview__hover">
-              <span>Ver más</span>
+              <Link to="/galeria">Ver mas</Link>
             </div>
           </div>
         ))}
@@ -102,12 +99,17 @@ const PrintsPreview = () => {
 
         <div className="prints-preview__imgs">
           {imgs.map((img, i) => (
-            <div
+            <Link
+              to="/prints"
               key={img}
               className={`prints-preview__img prints-preview__img--${i}`}
+              aria-label="Ver prints disponibles"
             >
               <img src={img} alt={`Print ${i + 1}`} />
-            </div>
+              <div className="galeria-preview__hover">
+                <span>Ver mas</span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
