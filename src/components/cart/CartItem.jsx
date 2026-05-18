@@ -19,14 +19,12 @@ export default function CartItem({ item }) {
 
   return (
     <div className="flex gap-4 border p-3">
-      {/* Imagen */}
       <img
         src={item.image}
         alt={item.name}
         className="w-20 h-20 object-cover"
       />
 
-      {/* Info */}
       <div className="flex-1">
         <h3 className="font-medium">{item.name}</h3>
         <p className="text-sm text-gray-500">Talle: {item.size}</p>
@@ -43,14 +41,16 @@ export default function CartItem({ item }) {
         </div>
       </div>
 
-      {/* Remove */}
       <button
+        type="button"
         onClick={() => removeFromCart(item.id, item.size)}
         className="text-sm text-red-500"
+        aria-label={`Eliminar ${item.name} del carrito`}
       >
-        ✕
+        <span className="notranslate" aria-hidden="true" translate="no">
+          &times;
+        </span>
       </button>
     </div>
   );
 }
-

@@ -32,78 +32,67 @@ export default function BillingForm({ onFormChange }) {
     }));
   };
 
-  const inputClass =
-    "w-full border px-4 py-3 outline-none focus:ring-2 focus:ring-black";
+  const fields = [
+    { name: "nombre", label: "Nombre", autoComplete: "given-name" },
+    { name: "apellido", label: "Apellido", autoComplete: "family-name" },
+    {
+      name: "email",
+      label: "Correo electronico",
+      type: "email",
+      autoComplete: "email",
+    },
+    { name: "telefono", label: "Telefono", autoComplete: "tel" },
+    {
+      name: "direccion",
+      label: "Direccion",
+      autoComplete: "street-address",
+    },
+    {
+      name: "ciudad",
+      label: "Ciudad",
+      autoComplete: "address-level2",
+    },
+    {
+      name: "provincia",
+      label: "Provincia",
+      autoComplete: "address-level1",
+    },
+    { name: "cp", label: "Codigo postal", autoComplete: "postal-code" },
+  ];
+
+  const renderField = ({ name, label, type = "text", autoComplete }) => (
+    <label className="billing-form__field" key={name}>
+      <span>{label}</span>
+      <input
+        name={name}
+        type={type}
+        value={form[name]}
+        autoComplete={autoComplete}
+        onChange={handleChange}
+        required
+      />
+    </label>
+  );
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Datos de facturacion</h2>
-
-      <div className="grid grid-cols-2 gap-4">
-        <input
-          className={inputClass}
-          name="nombre"
-          placeholder="Nombre"
-          value={form.nombre}
-          onChange={handleChange}
-        />
-        <input
-          className={inputClass}
-          name="apellido"
-          placeholder="Apellido"
-          value={form.apellido}
-          onChange={handleChange}
-        />
+    <form className="billing-form">
+      <div className="billing-form__header">
+        <p className="billing-form__step">Paso 1</p>
+        <h2>Datos del comprador</h2>
+        <p>
+          Estos datos se usan para registrar el pedido y coordinar la entrega.
+        </p>
       </div>
 
-      <input
-        className={inputClass}
-        name="email"
-        type="email"
-        placeholder="Correo electronico"
-        value={form.email}
-        onChange={handleChange}
-      />
-
-      <input
-        className={inputClass}
-        name="telefono"
-        placeholder="Telefono"
-        value={form.telefono}
-        onChange={handleChange}
-      />
-
-      <input
-        className={inputClass}
-        name="direccion"
-        placeholder="Direccion"
-        value={form.direccion}
-        onChange={handleChange}
-      />
-
-      <div className="grid grid-cols-3 gap-4">
-        <input
-          className={inputClass}
-          name="ciudad"
-          placeholder="Ciudad"
-          value={form.ciudad}
-          onChange={handleChange}
-        />
-        <input
-          className={inputClass}
-          name="provincia"
-          placeholder="Provincia"
-          value={form.provincia}
-          onChange={handleChange}
-        />
-        <input
-          className={inputClass}
-          name="cp"
-          placeholder="CP"
-          value={form.cp}
-          onChange={handleChange}
-        />
+      <div className="billing-form__grid billing-form__grid--two">
+        {fields.slice(0, 2).map(renderField)}
       </div>
-    </div>
+
+      <div className="billing-form__grid">{fields.slice(2, 5).map(renderField)}</div>
+
+      <div className="billing-form__grid billing-form__grid--three">
+        {fields.slice(5).map(renderField)}
+      </div>
+    </form>
   );
 }

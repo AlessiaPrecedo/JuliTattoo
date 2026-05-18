@@ -1,7 +1,15 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../../context/useCart";
 
 export default function OrderSummary() {
-  const { cartItems, subtotal, total, clearCart, removeFromCart } = useCart();
+  const {
+    cartItems,
+    subtotal,
+    total,
+    clearCart,
+    removeFromCart,
+    updateQuantity,
+  } = useCart();
 
   const formatPrice = (value) =>
     value.toLocaleString("es-AR", {
@@ -11,58 +19,84 @@ export default function OrderSummary() {
     });
 
   return (
-    <div className="border p-6 space-y-4">
-      <div className="flex items-start justify-between gap-4">
-        <h2 className="text-xl font-semibold">Resumen del pedido</h2>
+    <div className="order-summary">
+      <div className="order-summary__header">
+        <div>
+          <p className="order-summary__step">Paso 2</p>
+          <h2>Resumen del pedido</h2>
+        </div>
 
         {cartItems.length > 0 && (
           <button
             type="button"
             onClick={clearCart}
-            className="text-sm text-red-600 hover:text-red-700"
+            className="order-summary__clear"
           >
             Vaciar carrito
           </button>
         )}
       </div>
 
-      <div className="space-y-3">
+      <div className="order-summary__items">
         {cartItems.length === 0 ? (
-          <p className="text-sm text-gray-500">
+          <p className="order-summary__empty">
             Tu carrito esta vacio. Agrega productos para continuar con la compra.
           </p>
         ) : (
           cartItems.map((item) => (
             <div
               key={`${item.id}-${item.size}`}
-              className="flex items-center gap-3"
+              className="order-summary__item"
             >
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-16 h-16 object-cover"
               />
 
-              <div className="flex-1">
-                <p className="font-medium">{item.name}</p>
-                <p className="text-sm text-gray-500">
-                  Talle: {item.size} / Cantidad: {item.quantity}
+              <div className="order-summary__item-info">
+                <p className="order-summary__item-name">{item.name}</p>
+                <p className="order-summary__item-meta">
+                  Formato: {item.size}
                 </p>
+                <div className="order-summary__qty" aria-label="Cantidad">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      updateQuantity(item.id, item.size, item.quantity - 1)
+                    }
+                    disabled={item.quantity <= 1}
+                    aria-label={`Restar una unidad de ${item.name}`}
+                  >
+                    -
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      updateQuantity(item.id, item.size, item.quantity + 1)
+                    }
+                    aria-label={`Sumar una unidad de ${item.name}`}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <p className="font-medium">
+              <div className="order-summary__item-actions">
+                <p>
                   {formatPrice(item.price * item.quantity)}
                 </p>
 
                 <button
                   type="button"
                   onClick={() => removeFromCart(item.id, item.size)}
-                  className="p-2 text-lg leading-none transition hover:bg-red-50"
+                  className="order-summary__remove"
                   aria-label={`Eliminar ${item.name} del carrito`}
                   title="Eliminar producto"
                 >
-                  x
+                  <span className="notranslate" aria-hidden="true" translate="no">
+                    &times;
+                  </span>
                 </button>
               </div>
             </div>
@@ -70,13 +104,22 @@ export default function OrderSummary() {
         )}
       </div>
 
-      <div className="border-t pt-4 space-y-2">
-        <div className="flex justify-between text-sm">
+      <Link to="/prints" className="order-summary__continue">
+        Seguir viendo prints
+      </Link>
+
+      <div className="order-summary__totals">
+        <div className="order-summary__row">
           <span>Subtotal</span>
           <span>{formatPrice(subtotal)}</span>
         </div>
 
-        <div className="flex justify-between font-semibold text-lg border-t pt-3">
+        <div className="order-summary__row">
+          <span>Envio</span>
+          <span>Envio a coordinar con el vendedor</span>
+        </div>
+
+        <div className="order-summary__row order-summary__row--total">
           <span>Total</span>
           <span>{formatPrice(total)}</span>
         </div>

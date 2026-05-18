@@ -290,7 +290,9 @@ export default function ImageLightbox({ images, selectedIndex, setSelectedIndex 
         onClick={closeLightbox}
         aria-label="Cerrar imagen"
       >
-        x
+        <span className="notranslate" aria-hidden="true" translate="no">
+          &times;
+        </span>
       </button>
 
       <button

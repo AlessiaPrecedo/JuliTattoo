@@ -16,7 +16,11 @@ export default function CartDrawer({ isOpen, onClose }) {
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b">
         <h2 className="text-lg font-semibold">Tu carrito</h2>
-        <button onClick={onClose}>x</button>
+        <button type="button" onClick={onClose} aria-label="Cerrar carrito">
+          <span className="notranslate" aria-hidden="true" translate="no">
+            &times;
+          </span>
+        </button>
       </div>
 
       {/* Body */}
